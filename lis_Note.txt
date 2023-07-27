@@ -1,0 +1,22 @@
+LIS can be found at
+http://www.ssisc.org/lis/
+http://www.netlib.org/misc/lis/
+
+About lis-1.3.11:
+-----------------
+This is the only version I ever used with sgrid.
+It can be downloaded from http://www.ssisc.org/lis/dl/
+
+When I compiled on thor with the open source pathscale compiler, I used:
+---
+./configure --help
+
+export LIBRARY_PATH=
+export LD_LIBRARY_PATH=
+
+./configure --prefix=/opt --enable-saamg --enable-omp --enable-fma CC=pathcc CFLAGS=-Ofast FC=pathf95 FCFLAGS=-Ofast
+
+./configure --prefix=/opt --enable-saamg --enable-omp --enable-fma CC=pathcc CFLAGS=-O3 FC=pathf90 FCFLAGS=-O3
+
+make
+make install

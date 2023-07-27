@@ -1,0 +1,31 @@
+Some packages:
+--------------
+ZIB_linSolvers:
+contains some linear solvers that seem to work, but are not as good as the
+ones in dctemplates.
+
+lis-1.3.11:
+Another linear solver library. I tested version 1.3.11 with sgrid. It also
+wasn't better than dctemplates. However, there are newer versions now...
+
+
+Valuable packages:
+------------------
+UMFPACK:
+it needs AMD and UFconfig. The AMD, UFconfig, and UMFPACK directories
+must all reside in the same parent directory. Nowadays it should suffice to
+just install libsuitesparse from UFL (which is also in Debian). This has all
+we need.
+
+dctemplates:
+I modified this to use it with sgrid. It contains linear solvers
+like: BiCGstab, GMRES, ...
+The orignal is in dctemplates_orig. Later I further modified it to use
+external BLAS and LAPACK, since the version included in dctemplatesis very
+old and primitive. This is in dctemplates_extBlasLapack.
+
+dctemplates_extBlasLapack:
+This is what we likely want to use. It contains linear solvers
+like: BiCGstab, GMRES, ...
+It needs to be linked together with at least BLAS, probably we want to use
+whichever BLAS is best for our system.

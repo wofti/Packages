@@ -1,0 +1,90 @@
+NOTE:
+-----
+The programs in ZIB_linSolvers of giter@quark.physics.fau.edu:Packages
+are NOT freely distributable!
+
+Read the header of gmres.c
+Or what was on
+http://elib.zib.de/pub/elib/codelib/NewtonLib/
+on June 18, 2022:
+
+Numerical Mathematics- NewtonLib
+
+Software repository for Peter Deuflhards Book "Newton Methods for Nonlinear
+Problems -- Affine Invariance and Adaptive Algorithms"
+
+This monograph presents a scheme to construct adaptive Newton-type
+algorithms in close connection with an associated affine invariant
+convergence analysis. Part of these algorithms are presented as informal
+programs in the text. Some, but not all of the described algorithms have
+been worked out in detail. Below follows a list of codes mentioned by name
+in the book.
+
+All of the available programs (not only by the author and his group) are
+free as long as they are exclusively used for research or teaching purposes.
+For commercial use of the software you must sign a license-agreement with
+the ZIB and pay a license-charge that depends on the referenced software
+package and the intended usage. Please read our sample license agreement for
+more details. If you have signed a license agreement for commercial use,
+then you may download the complete NewtonLib as one compressed tar-file
+here.
+
+An asterisks * indicate that a code is still under development at the time
+of the appearance of the book in print.
+
+Iterative methods for large systems of linear equations:
+
+GMRES - Generalized minimal residual method; residuum norm based termination criterion (Section 1.4.1)
+Source code gmres.c |  Download directory |  Tar file
+PCG - adaptive preconditioned conjugate gradient method for linear systems with symmetric positive definite matrix; energy error norm based termination criterion (Section 1.4.2)
+Source code pcg.c | Download directory | Tar file
+GBIT - adaptive Broyden's 'good' rank-1 update method specialized for linear equations; error oriented termination criterion (Section 1.4.4)
+New C source code gbit.c | Download directory | Tar file
+Old Fortran source code gbit1.f | Download directory | Tar file
+Exact global Newton methods for systems of nonlinear equations:
+
+NLEQ1 - popular production code; global Newton method with error oriented convergence criterion; arbitrary selection of direct linear equation solver; adaptive damping strategies slightly different from Section 3.3.3; no rank strategy, full or banded Jacobian
+Source code nleq1.f | Download directory |  Fortran code tar file |  Matlab source nleq1.m |  Matlab code download directory |  Matlab code tar file
+NLEQ1S - same algorithm as NLEQ1, sparse Jacobian
+Source code nleq1s.f | Download directory | Tar file
+NLEQ2 - production code; global Newton method with error oriented convergence criterion; QR-decomposition with subcondition number estimate; adaptive damping and rank strategy slightly different from Section 3.3.3
+Source code nleq2.f | Download directory | Tar file
+NLEQ_RES - global Newton method with residual based convergence criterion and adaptive trust region strategy (Section 3.2.2)
+Source code nleq_res.c | Download directory | Tar file
+NLEQ_ERR - global Newton method with error oriented convergence criterion and adaptive trust region strategy (Section 3.3.3)
+Source code nleq_err.c | Download directory | Tar file
+NLEQ-OPT - global Newton method for gradient systems originating from convex optimization; energy error norm oriented or objective function based convergence criteria and adaptive trust region strategy (Section 3.4.2)
+Local quasi-Newton methods for systems of nonlinear equations:
+
+QNERR - recursive implementation of Broyden's 'good' rank-1 update method; error oriented convergence criterion (Section 2.1.4)
+Source code qnerr.c | Download directory | Tar file
+QNRES - recursive implementation of Broyden's 'bad' rank-1 update method; residual based convergence criterion (Section 2.2.3)
+Source code qnres.c | Download directory | Tar file
+Continuation methods for parameter dependent systems of nonlinear equations:
+
+ALCON1 - global quasi-Gauss-Newton continuation method; adaptive path-following beyond turning points (Section 5.2.3)
+Source code alcon1.f | Download directory | Tar file
+ALCON2 - global quasi-Gauss-Newton continuation method; adaptive path-following beyond turning points; computation of bifurcation diagrams including simple bifurcations (Sections 5.2.3, 5.3.2, and 5.3.3)
+Source code alcon2.f | Download directory | Tar file
+ALCON-S - Pathfollowing method for sparse parameter-dependent nonlinear systems of equations. Includes several application examples.
+more information |  Download directory |  Tar file
+Global Gauss-Newton methods for nonlinear least squares problems:
+
+NLSCON - (older) global constrained (or unconstrained) Gauss-Newton method with error oriented convergence criterion; adaptive trust region strategies slightly different from Sections 4.3.4 and 4.1.2
+Source code nlscon.f | Download directory |  Fortran code tar file |  Matlab source nlscon.m |  Matlab code download directory |  Matlab code tar file
+NLSQ_RES* - global unconstrained Gauss-Newton method with projected residual based convergence criterion and adaptive trust region strategy (Section 4.2.3)
+Download directory | Tar file
+NLSQ_ERR* - global unconstrained Gauss-Newton method with error oriented convergence criterion and adaptive trust region strategies (Sections 4.3.4 and 4.3.5)
+Download directory | Tar file
+Inexact global Newton methods for large systems of nonlinear equations:
+
+GIANT - (older) global inexact Newton method with error oriented convergence criterion; adaptive trust region strategy slightly different from Sections 2.1.5 and 3.3.4; earlier version of GBIT for inner iteration
+Source code giant.f | Download directory | Tar file
+GIANT-GMRES* - global inexact Newton method with residual based convergence criterion and adaptive trust region strategy; GMRES for inner iteration (Sections 2.2.4 and 3.2.3)
+Source code giant-gmres.c | Download directory | Tar file
+GIANT-GBIT* - global inexact Newton method with error oriented convergence criterion and adaptive trust region strategy; GBIT for inner iteration (Sections 2.1.5 and 3.3.4)
+Source code giant-gbit.c | Download directory | Tar file
+GIANT-PCG - global inexact Newton method for gradient systems originating from convex function optimization; energy error norm oriented or function based convergence criteria and adaptive trust region strategy; PCG for inner iteration (Sections 2.3.3 and 3.4.3)
+Pagemaster: Bodo Erdmann
+Impressum
+Last update: Fri Jul 07 2017
