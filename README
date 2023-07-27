@@ -1,0 +1,14 @@
+This repo contains some packages that are useful for Sgrid
+----------------------------------------------------------
+
+dctemplates_extBlasLapack : needed if Sgrid uses GMRES in elliptic solver
+-------------------------
+see dctemplates_extBlasLapack/NOTE.txt for compilation instructions
+
+
+forUMFPACK : has UMFPACK LU decomp, needed in Sgrid elliptic solver
+----------
+see cat forUMFPACK/Note.txt for compilation instructions
+
+
+Note: the hypre, lis or ZIB linear solvers are not needed by sgrid
