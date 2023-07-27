@@ -1,0 +1,9 @@
+I modified all makefiles to make it run on my Debian system with gcc and
+icc. In the main Makefile we probably want to set
+
+CC = icc
+CFLAGS = -O3
+
+and maybe also
+CC_F2CLIBS = icc
+CFLAGS_F2CLIBS = -O2 -DNON_UNIX_STDIO

@@ -1,0 +1,63 @@
+According to Jack Dongarra this is free software that carries a Modified BSD
+license.
+
+---------------------------------------------------------------------------
+
+It was downloaded from http://www.netlib.org/templates and then modified.
+The contact information found at http://www.netlib.org is this:
+
+http://www.netlib.org/utk/people/JackDongarra/
+Contact Information
+Jack Dongarra
+Electrical Engineering and Computer Science Department
+1122 Volunteer Blvd
+University of Tennessee
+Knoxville, TN 37996-3450
+
+E-mail: dongarra@icl.utk.edu
+Office: 865-974-8295
+Home: 865-481-8295
+Fax: 865-974-8296
+
+---------------------------------------------------------------------------
+
+To make sure we can distribute it, I wrote this email to Jack Dongarra:
+
+On Nov 19, 2021, at 11:43 AM, Wolfgang Tichy <wolf@fau.edu> wrote:
+
+Subject: can templates software by modified and distributed?
+From: Wolfgang Tichy <wolf@fau.edu>
+To: Jack Dongarra <dongarra@icl.utk.edu>
+
+Dear Dr. Dongarra,
+
+I am not sure if you are the correct person to write to, but I have a
+question regarding the templates software at http://www.netlib.org/templates
+and your name appears on the bottom of many web pages there.
+
+We have written a program (called sgrid) that solves elliptic equations to
+find binary neutron star initial data in General Relativity. In it we use a
+modified version of GMRES from templates. It all works quite well. However,
+we now would like to make our program publicly available under the GPL
+license. Would it be ok with you and your co-authors if we distribute the
+modified templates library along with our program? On netlib.org it says all
+the software there is free, but I am not entirely sure what we are allowed
+to do, as there is no real license or rules inside templates.
+
+Thank you very much,
+Wolfgang
+
+---------------------------------------------------------------------------
+
+The answer I received was this:
+
+On Nov 19, 2021, at 11:57 AM, Jack Dongarra <dongarra@icl.utk.edu> wrote:
+
+Subject: Re: can templates software by modified and distributed?
+From: Jack Dongarra <dongarra@icl.utk.edu>
+To: Wolfgang Tichy <wolf@fau.edu>
+
+The short answer is yes. The templates software carries a Modified BSD license.
+Jack Dongarra
+
+Sent from my iPad

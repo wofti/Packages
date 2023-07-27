@@ -1,0 +1,33 @@
+Using UMFPACK-5.2.0:
+====================
+
+# 1. unpack archives:
+tar xzfv AMD-2.2.0.tar.gz
+tar xzfv UFconfig-3.2.0.tar.gz
+tar xzfv UMFPACK-5.2.0.tar.gz
+
+# 2. edit UFconfig/UFconfig.mk , since this is conf for all Makefiles
+# For gcc and openblas on supercomputers like koko make sure that:
+#BLAS = -lblas -lgfortran -lgfortranbegin -lg2c
+#LAPACK = -llapack
+BLAS = -L/opt/ohpc/pub/libs/gnu8/openblas/0.3.7/lib -lopenblas
+# For icc on supercomputers like koko make sure that:
+CC = icc
+CPLUSPLUS = icpc
+#BLAS = -lblas -lgfortran -lgfortranbegin -lg2c
+BLAS = -lblas -lifcore
+# If we have Intel's MKL and use icc, the latter two should be:
+#BLAS = -lblas -lgfortran -lgfortranbegin -lg2c
+#LAPACK = -llapack
+BLAS = -mkl
+
+# 3. compile with:
+cd UMFPACK
+make
+
+# 4. To use in e.g. sgrid add this to its MyConfig
+SPECIALINCS += -I/home/wolf/Packages/forUMFPACK/AMD/Include
+SPECIALINCS += -I/home/wolf/Packages/forUMFPACK/UFconfig
+SPECIALINCS += -I/home/wolf/Packages/forUMFPACK/UMFPACK/Include
+SPECIALLIBS += /home/wolf/Packages/forUMFPACK/UMFPACK/Lib/libumfpack.a
+SPECIALLIBS += /home/wolf/Packages/forUMFPACK/AMD/Lib/libamd.a

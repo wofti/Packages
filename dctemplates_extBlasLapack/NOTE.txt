@@ -1,0 +1,60 @@
+I modified all makefiles to make it run on my Debian system with gcc and
+icc. In the main Makefile we probably want to set
+
+CC = gcc
+CFLAGS = -O3
+
+and maybe also
+CC_F2CLIBS = gcc
+CFLAGS_F2CLIBS = -O2 -DNON_UNIX_STDIO
+
+It seems the original programs from Richard Barrett et al. had some
+drawbacks that made them unsuitable for our purposes. So:
+
+I changed GMRES.c, BiCGSTAB.c, CGS.c, BiCG.c and QMR.c so that they no
+longer use static local vars. I want to make them thread safe.
+
+Then I changed GMRES.c so that when it exits because the number of
+iterations are exceeded, it exits in the same way as if the tolerance goal
+was reached (just the return value is different). Before it exited
+differently which always seemed to cause NANs. The original version is in
+GMRES_orig.c
+
+I also commented out the first tol comparison in GMRES so that it always
+does something:
+* before this change GMRES would immediately exit with success
+  if (norm2 / bnrm2 < tol)
+* variables set before this now commented out line:
+  +norm2 is norm of M^-1 (b - Ax), where M^-1 is precon solve
+  +bnrm2 is norm of b
+Without this change GMRES might have exited immediately reporting success,
+but without setting the solution vector at all.
+
+Then I changed the Makefile such that we no longer compile
+dlapack.c and dblas.c
+So now we have to link against whatever LAPACK and BLAS libraries we have.
+In doing so I discovered that MatGen.c needs dlaran_ which is a primitive
+random number generator, whose code is in dlapack.c. I add the file 
+templates_dlaran.c which now contains templates_dlaran_ and edited
+MatGen.c to use it.
+
+I also changed the Makefile so that the test is no longer in
+libiteratortemplates.a 
+For this reason I had to move the function getbreak_() out of Tester.c into
+the separate file WT_utils.c
+
+BUT note: getbreak_ calls dlamch_ which is in LAPACK. For this reason we
+still need to link the whole thing with LAPACK!
+
+I changed MatVec.c, PSolve.c, Tester.c, Utils.c, dnsychk.c, dspdchk.c
+so that the common blocks have now extern for the structs system_, matdim_
+and forms_ . This way we can compile without -fcommon on the new gcc.
+
+-----------------------------------------------------------------------------
+BLAS and LAPACK:
+----------------
+with:
+make libdl_lapack_blas.a
+we can make  libdlblas.a , libdllapack.a and libdl_lapack_blas.a
+which contain double and long int versions of BLAS, LAPACK and both
+LAPACK+BLAS. They are built from dlapack.c and dblas.c .

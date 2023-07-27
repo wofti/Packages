@@ -1,0 +1,4 @@
+UMFPACK License:
+================
+Both AMD-2.2.0.tar.gz and UMFPACK-5.2.0.tar.gz contain a README.txt file
+that says that they are available under the GPL license.
