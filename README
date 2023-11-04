@@ -8,7 +8,7 @@ see dctemplates_extBlasLapack/NOTE.txt for compilation instructions
 
 forUMFPACK : has UMFPACK LU decomp, needed in Sgrid elliptic solver
 ----------
-see cat forUMFPACK/Note.txt for compilation instructions
+see forUMFPACK/Note.txt for compilation instructions
 
 
 Note: the hypre, lis or ZIB linear solvers are not needed by sgrid
