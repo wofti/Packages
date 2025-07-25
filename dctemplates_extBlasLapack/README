@@ -1,3 +1,18 @@
+==========
+Compiling:
+==========
+For most purposes (such as sgrid runs) we only need libiteratortemplates.a .
+
+To compile libiteratortemplates.a , just type:
+   make
+
+For more Details see NOTE.txt .
+
+
+======================================================
+Below is the old README file the original dctemplates:
+======================================================
+
 ============= README file for testing the Iterative Templates ==================
 
 This directory contains the double precision C version of the Iterative 
