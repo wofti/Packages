@@ -25,7 +25,7 @@ dl_lapack_blas_o = dlapack.o dblas.o
 .f.o:;  $(CC) $(CFLAGS) -c $<
 
 # make libiteratortemplates.a
-libiteratortemplates.a: $(templates_o) $(f2cLIBS)
+libiteratortemplates.a: $(templates_o)
 	ar rucs libiteratortemplates.a $(templates_o)
 	@echo "to make libdl_lapack_blas.a type: make libdl_lapack_blas.a"
 	@echo "target libdl_lapack_blas.a also makes libdlblas.a and libdllapack.a"
